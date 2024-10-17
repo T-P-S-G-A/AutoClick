@@ -9,7 +9,7 @@ def clicker():
     while True:
         if click:
             mouse.click()
-        t.sleep(0.01)
+        t.sleep(0.01) #Time in seconds (0.01s = 10ms)
         
 def toggle():
     global click
