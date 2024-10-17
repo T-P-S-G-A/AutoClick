@@ -11,26 +11,25 @@ def clicker():
             mouse.click()
         t.sleep(0.01) #Time in seconds (0.01s = 10ms)
         
-def toggle():
+def start():
     global click
-    click = not click
-    if click:
-        print("Clicker enabled")
-    else:
-        print("Clicker disabled")
+    click = True
+    print("Clicker enabled")
+
 
 def exit():
     global click
     click = False
-    print("Exiting...")
+    print("Stopping...")
 
     
 click_thread = threading.Thread(target=clicker)
 click_thread.daemon = True
 click_thread.start()
 
-kb.add_hotkey("left alt+`", toggle)
-kb.add_hotkey("left ctrl+`", exit)
+# Keybinds
+kb.add_hotkey("alt+`", start) #Start Clicker
+kb.add_hotkey("ctrl+`", exit) #Exit Clicker
 
-print("Press [left alt+`] to enable/disable clicker\n Press [left ctrl + ` ] to exit")
+print("Press [alt + `] to enable clicker\n Press [ctrl + ` ] to exit")
 kb.wait()
